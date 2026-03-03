@@ -69,6 +69,7 @@ body {
     min-width: 100%;
     color: var(--white);
     font-family: var(--font);
+    margin: 0;
 }
 
 img, 
@@ -81,6 +82,25 @@ h2 {
     color: var(--black);
     font-size: 1.75rem;
     font-weight: bold;
+    opacity: 0;
+    animation: slideDown 1s ease forwards;
+}
+
+h3 {
+    opacity: 0;
+    animation: slideDown 1s ease forwards;
+}
+
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .button {
@@ -139,7 +159,7 @@ h2 {
 }
 
 .hero p {
-    line-height: 1.;
+    line-height: 1.1;
     font-size: 0.75rem;
 }
 
@@ -249,9 +269,6 @@ nav ul a:hover {
     border-radius: 2px;
 }
 
-
-
-
 /* about */ 
 .about h2 {
     padding: 1rem;
@@ -298,6 +315,7 @@ nav ul a:hover {
 
 /* results */
 .results {
+    width: auto;
     background: var(--blue);
     display: grid;
     padding: 4rem 1rem;
@@ -317,7 +335,7 @@ nav ul a:hover {
 }
 
 .results p {
-    max-width: 80%vw;
+    max-width: 80%;
     margin: 0 auto 2rem auto;
 }
 
@@ -421,6 +439,10 @@ button {
 }
 
 /* contact form */
+.contact {
+    background: var(--black);
+    padding: 1rem;
+}
 .contact h2 {
    color: var(--white);
 }
@@ -430,7 +452,6 @@ button {
 }
 .contact form {
     max-width: 100%; 
-    background: var(--black);
     display: flex;
     flex-direction: column;
     color: var(--white);
@@ -453,62 +474,85 @@ button {
 }
 
 .contact button{
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     border-radius: 12px;
 }
 
 /* footer */ 
 footer {
     background: var(--black);
+    color: var(--white);
     padding: 2rem 4rem;
+    font-size: 0.75rem;
+    text-align: center;
 }
 
-.footer container {
+footer address {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer .container {
     max-width: 1024px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    text-align: center;
+    
 }
 
-.footer a {
+footer a,
+footer a:visited {
     color: var(--white);
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    text-decoration: none;
 }
 
-.footer a:hover {
-    color: var(--white);
+footer a:hover {
+    color: var(--blue);
 }
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media (min-width: 800px) { 
-    .hamburger {
+    .hamburger, 
+    #menu-toggle,
+    nav h2 {
         display: none;
     }
 
     header nav ul {
-        display: flex; 
+        display: flex !important;
         flex-direction: row;
+        gap: 2rem;
+        max-height: none;
+        opacity: 1;
+        transform: none;
+        background: transparent;
     }
 
-    .results .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
+    header nav ul a {
+        transition: all 0.3s ease;
     }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
+
+    header nav ul a:hover {
+        background: var(--blue);
+        border: 6px solid var(--blue);
+        border-radius: 10px;
+        color: var(--white);
+        border-style: double;
     }
-    .results-table {
-        width: 50%;
-    }
+ 
+    
     #bar-chart {
         width: 50%;
     }
+
+    .services {
+    display: flex;
+    flex-direction: column;
+}
     .services .container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -545,6 +589,16 @@ footer {
         grid-row: 3;
     }
 
+    .contact form {
+        max-width: 900px;
+        margin: 2rem auto;
+    }
+
+    footer p {
+        justify-content: center;
+        gap: 20rem;
+    }
+
 }
 /* MEDIA QUERIES (LARGE) */
 @media (min-width: 1024px) {
@@ -553,12 +607,21 @@ footer {
         justify-content: flex-end;
         gap: 2rem;
     }
+
+    #bar-chart {
+        grid-column: 2;
+    } 
+
     .hero h2 {
         font-size: 2.5rem;
     }
 
     .hero p {
         font-size: 1.2rem;
+    }
+
+    .services h2 {
+        text-align: center;
     }
     .services .container {
         grid-template-columns: repeat(3, 1fr);
@@ -602,5 +665,17 @@ footer {
     #menu-toggle, 
     nav label {
         display: none;
+    }
+
+    .contact form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: stretch;
+    }
+
+  
+
+    .contact .submit {
+        grid-column: 2;
     }
 }
