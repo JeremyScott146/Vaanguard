@@ -17,13 +17,17 @@
 <!-- WRAP CONTENT IN VALIDATED, SEMANTIC HTML5 (SEE HINTS FOLDER LINKED TO IN THE CANVAS INSTRUCTIONS)-->
 <!-- Header -->
     <header> 
-        <div class="container">
+        <div class="nav-container">
             
             <h1>Vanguard</h1>
             <nav>
                 <h2>Main Navigation</h2>
                 <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle"><span></span></label>
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -50,35 +54,34 @@
         </section>
 
         <section id="services" class="services">
+            <h2>What We Offer</h2>
             <div class="container">
-                <h2>What We Offer</h2>
-
-                <article>
+                <article class="strategic">
                     <h3>Strategic Growth Consulting</h3>
                     <p>Unlock new revenue streams and optimize market expansion strategies.</p>
                 </article>
 
-                <article>
+                <article class="high">
                     <h3>High-Impact Investment Solutions</h3>
                     <p>Maximize returns with data-driven portfolio management.</p>
                 </article>
 
-                <article>
+                <article class="biz">
                     <h3>Business Acceleration & Mergers</h3>
                     <p>Identify opportunities for rapid growth and high-value acquisitions.</p>
                 </article>
 
-                <article>
+                <article class="dig">
                     <h3>Digital Transformation</h3>
                     <p>Stay at the forefront of industry advancements with AI, blockchain, and automation.</p>
                 </article>
             
-                <article>
+                <article class="ex">
                     <h3>Exclusive Executive Advisory Services</h3>
                     <p>Personalized insights and leadership support for C-suite executives and high-net-worth investors.</p>
                 </article>
 
-                <article>
+                <article class="co">
                     <h3>Corporate Innovation</h3>
                     <p>Strategic implementation of new ideas, technologies, and processes to drive business growth, enhance competitive advantage, and adapt to evolving market demands.</p>
                 </article>
@@ -166,7 +169,7 @@
                     <label for="questions">How can we help you?</label>
                     <textarea name="questions" id="questions"></textarea>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="button">Submit</button>
                 </form>  
             </div>  
         </section>
